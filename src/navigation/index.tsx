@@ -21,6 +21,9 @@ const RootNavigator = (): React.ReactElement => {
       <RootStack.Screen
         name={NavigatorNamesEnum.Login}
         component={LoginScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <RootStack.Screen name="Main" component={BottomTabNavigator} />
     </RootStack.Navigator>

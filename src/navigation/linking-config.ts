@@ -7,21 +7,13 @@ const linking: LinkingOptions<RootStackParamList> = {
   prefixes: [Linking.createURL("/")],
   config: {
     screens: {
-      Root: {
+      Main: {
         screens: {
-          TabOne: {
-            screens: {
-              TabOneScreen: "one",
-            },
-          },
-          TabTwo: {
-            screens: {
-              TabTwoScreen: "two",
-            },
-          },
+          [NavigatorNamesEnum.Notes]: "notes",
+          [NavigatorNamesEnum.Settings]: "settings",
         },
       },
-      Login: [NavigatorNamesEnum.Login],
+      [NavigatorNamesEnum.Login]: "login",
     },
   },
 };
