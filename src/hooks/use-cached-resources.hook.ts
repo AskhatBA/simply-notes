@@ -3,7 +3,7 @@ import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 
-export default function useCachedResources() {
+export default function useCachedResourcesHook() {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   const loadResourcesAndDataAsync = async () => {
