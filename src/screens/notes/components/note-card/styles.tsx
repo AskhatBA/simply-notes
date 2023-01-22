@@ -15,12 +15,13 @@ export const StyledPicture = styled(LinearGradient).attrs(purpleGradient)`
   align-items: center;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 60px;
 `;
 
 export const StyledPlaceholderText = styled.Text`
   font-family: "FontBold";
   font-size: 22px;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const StyledContent = styled.View`

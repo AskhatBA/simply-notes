@@ -1,12 +1,20 @@
 import { FC, ReactElement } from "react";
 import { StyledWrapper, StyledTextField } from "./styles";
 
-const TextInput: FC = (): ReactElement => {
+interface TextInputProps {
+  placeholder?: string;
+}
+
+const TextInput: FC<TextInputProps> = ({ placeholder }): ReactElement => {
   return (
     <StyledWrapper>
-      <StyledTextField />
+      <StyledTextField placeholder={placeholder} />
     </StyledWrapper>
   );
+};
+
+TextInput.defaultProps = {
+  placeholder: "",
 };
 
 export default TextInput;

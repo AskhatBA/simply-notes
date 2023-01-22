@@ -5,7 +5,7 @@ import { StyledWrapper } from "./styles";
 const TextField: FC = (): ReactElement => {
   return (
     <StyledWrapper>
-      <TextInput />
+      <TextInput placeholder="Start typing ..." />
     </StyledWrapper>
   );
 };

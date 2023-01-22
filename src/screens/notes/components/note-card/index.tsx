@@ -22,9 +22,7 @@ const NoteCard: FC = (): ReactElement => {
   return (
     <StyledWrapper style={{ borderColor: colors.card }} onPress={openNotePage}>
       <StyledPicture>
-        <StyledPlaceholderText style={{ color: colors.text }}>
-          A
-        </StyledPlaceholderText>
+        <StyledPlaceholderText>A</StyledPlaceholderText>
       </StyledPicture>
       <StyledContent>
         <StyledTitle style={{ color: colors.text }}>Note name</StyledTitle>

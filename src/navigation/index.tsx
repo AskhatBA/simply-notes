@@ -6,6 +6,7 @@ import {
   darkThemeColors,
   defaultThemeColors,
 } from "@/constants/colors.constants";
+import { ThemeProvider } from "@/providers/theme.provider";
 
 import LinkingConfiguration from "./linking-config";
 import { RootNavigator } from "./navigators/root.navigator";
@@ -33,7 +34,9 @@ const Navigation = (): ReactElement => {
 
   return (
     <NavigationContainer linking={LinkingConfiguration} theme={theme}>
-      <RootNavigator />
+      <ThemeProvider>
+        <RootNavigator />
+      </ThemeProvider>
     </NavigationContainer>
   );
 };
