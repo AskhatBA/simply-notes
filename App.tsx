@@ -1,23 +1,27 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import useCachedResourcesHook from "@/hooks/use-cached-resources.hook";
+import useCachedResources from "@/hooks/use-cached-resources";
+import useLoadFonts from "@/hooks/use-load-fonts";
 import { ContextProvider } from "@/providers/context.provider";
-import useColorScheme from "./src/hooks/useColorScheme";
-import Navigation from "./src/navigation";
+import Navigation from "@/navigation";
 
 export default function App() {
-  const isLoadingComplete = useCachedResourcesHook();
-  const colorScheme = useColorScheme();
+  const isLoadingComplete = useCachedResources();
+  const [fontsLoaded] = useLoadFonts();
 
   if (!isLoadingComplete) {
+    return null;
+  }
+
+  if (!fontsLoaded) {
     return null;
   }
 
   return (
     <SafeAreaProvider>
       <ContextProvider>
-        <Navigation colorScheme={colorScheme} />
+        <Navigation />
       </ContextProvider>
       <StatusBar />
     </SafeAreaProvider>

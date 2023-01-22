@@ -1,10 +1,13 @@
 import { FC, ReactElement } from "react";
-import { StyledContainer, StyledText } from "./styles";
+import NoteCard from "./components/note-card";
+import { StyledContainer } from "./styles";
 
 const Notes: FC = (): ReactElement => {
   return (
     <StyledContainer>
-      <StyledText>Notes screen</StyledText>
+      <NoteCard />
+      <NoteCard />
+      <NoteCard />
     </StyledContainer>
   );
 };

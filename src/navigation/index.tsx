@@ -1,45 +1,38 @@
-import * as React from "react";
-import { ColorSchemeName } from "react-native";
+import { ReactElement } from "react";
+import { useColorScheme } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { useThemeContext } from "@/context/theme.context";
 import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList } from "@/types/navigation.types";
-import { NavigatorNamesEnum } from "@/enums/navigator.enums";
-// Screens
-import LoginScreen from "@/screens/login";
-import { BottomTabNavigator } from "./bottom-tab.navigator";
+  darkThemeColors,
+  defaultThemeColors,
+} from "@/constants/colors.constants";
+
 import LinkingConfiguration from "./linking-config";
+import { RootNavigator } from "./navigators/root.navigator";
 
-const RootStack = createNativeStackNavigator<RootStackParamList>();
+const Navigation = (): ReactElement => {
+  const { darkMode, isOSPreferences } = useThemeContext();
+  const scheme = useColorScheme();
 
-const RootNavigator = (): React.ReactElement => {
+  const getTheme = () => {
+    if (isOSPreferences) {
+      if (scheme === "dark") {
+        return darkThemeColors;
+      }
+      return defaultThemeColors;
+    }
+
+    if (darkMode) {
+      return darkThemeColors;
+    }
+
+    return defaultThemeColors;
+  };
+
+  const theme = getTheme();
+
   return (
-    <RootStack.Navigator>
-      <RootStack.Screen
-        name={NavigatorNamesEnum.Login}
-        component={LoginScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <RootStack.Screen name="Main" component={BottomTabNavigator} />
-    </RootStack.Navigator>
-  );
-};
-
-const Navigation = ({
-  colorScheme,
-}: {
-  colorScheme: ColorSchemeName;
-}): React.ReactElement => {
-  return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-    >
+    <NavigationContainer linking={LinkingConfiguration} theme={theme}>
       <RootNavigator />
     </NavigationContainer>
   );

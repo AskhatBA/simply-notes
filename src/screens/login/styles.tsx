@@ -12,13 +12,14 @@ export const StyledLoginMainImage = styled.Image`
 `;
 
 export const StyledWelcomeText = styled.Text`
+  font-family: "FontSemiBold";
   font-size: 24px;
   font-weight: 500;
-  color: #fff;
+  margin-top: 24px;
 `;
 
 export const StyledAppCaption = styled.Text`
-  color: #fff;
+  font-family: "FontBold";
   font-size: 24px;
   font-weight: 500;
 `;

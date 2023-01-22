@@ -14,6 +14,7 @@ const linking: LinkingOptions<RootStackParamList> = {
         },
       },
       [NavigatorNamesEnum.Login]: "login",
+      [NavigatorNamesEnum.Note]: "note",
     },
   },
 };

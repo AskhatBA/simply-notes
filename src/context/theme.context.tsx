@@ -10,24 +10,31 @@ import React, {
 interface ThemeContextContextValues {
   darkMode: boolean;
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+  isOSPreferences: boolean;
+  setIsOsPreferences: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ThemeContext = createContext<ThemeContextContextValues>({
   darkMode: false,
   setDarkMode: () => {},
+  isOSPreferences: false,
+  setIsOsPreferences: () => {},
 });
 
 export const ThemeContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [isOSPreferences, setIsOsPreferences] = useState<boolean>(true);
 
   const state = useMemo(
     () => ({
       darkMode,
       setDarkMode,
+      isOSPreferences,
+      setIsOsPreferences,
     }),
-    [darkMode]
+    [darkMode, isOSPreferences]
   );
 
   return (

@@ -3,4 +3,5 @@ export enum NavigatorNamesEnum {
   Notes = "Notes",
   Note = "Note",
   Settings = "Settings",
+  Main = "Main",
 }

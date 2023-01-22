@@ -1,10 +1,11 @@
 import { FC, ReactElement } from "react";
-import { StyledContainer, StyledText } from "./styles";
+import TextField from "./components/text-field";
+import { StyledContainer } from "./styles";
 
 const Note: FC = (): ReactElement => {
   return (
     <StyledContainer>
-      <StyledText>Note screen</StyledText>
+      <TextField />
     </StyledContainer>
   );
 };

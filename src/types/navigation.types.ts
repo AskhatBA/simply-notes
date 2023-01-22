@@ -9,4 +9,5 @@ export type RootTabParamList = {
 export type RootStackParamList = {
   Main: NavigatorScreenParams<RootTabParamList> | undefined;
   Login: [NavigatorNamesEnum.Login];
+  Note: [NavigatorNamesEnum.Note];
 };
